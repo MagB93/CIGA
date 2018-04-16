@@ -1,0 +1,18 @@
+# Check whether the user has selected a BUILD_TYPE
+IF ("${CMAKE_BUILD_TYPE}" STREQUAL "")
+
+    message(STATUS "Build type not explicitly set. Trying to guess...")
+    get_filename_component(BINDIR ${PROJECT_BINARY_DIR} NAME)
+    IF (${BINDIR} MATCHES "RELEASE")
+        set(CMAKE_BUILD_TYPE "RELEASE")
+        message(STATUS "Set to ${CMAKE_BUILD_TYPE}")
+    ELSEIF(${BINDIR} MATCHES "DEBUG")
+        set(CMAKE_BUILD_TYPE "DEBUG")
+        message(STATUS "Set to ${CMAKE_BUILD_TYPE}")
+    ELSE()
+        message(WARNING "Unable to deduce build type. Use -DCMAKE_BUILD_TYPE=<RELEASE/DEBUG>")
+    ENDIF(${BINDIR} MATCHES "RELEASE")
+
+ELSE()
+    message(STATUS "Build Type is ${CMAKE_BUILD_TYPE}")
+ENDIF("${CMAKE_BUILD_TYPE}" STREQUAL "")
