@@ -1,0 +1,6 @@
+#ifndef BASE_H
+#define BASE_H
+
+namespace base_n;
+
+#endif 

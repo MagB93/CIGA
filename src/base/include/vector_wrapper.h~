@@ -1,0 +1,25 @@
+#ifndef VECTOR_WRAPPER_H
+#define VECTOR_WRAPPER_H
+
+#include "base"
+#include <vector>
+
+namespace base_n
+{
+  template< typename T >
+  struct vector_t
+  {
+    std::vector< T > _vec;
+
+    vector_t( T t, const size_t &size )
+    {
+      _vec = std::vector< t > ( size );
+    };
+  };
+
+
+
+}
+
+
+#endif
