@@ -32,7 +32,7 @@ namespace base_n
       _vec = copy._vec;
     };
 
-    T & operator[] ( const size_t &index ) const
+    const T & operator[] ( const size_t &index ) const
     {
       return _vec[ index ];
     };
@@ -44,10 +44,7 @@ namespace base_n
 
     vector_t< T > & operator= ( const vector_t< T > &other )
     {
-      // if( this != other )
-      // {
-        _vec = other;
-      // }
+      _vec = other._vec;
       return *this;
     };
 
@@ -60,21 +57,21 @@ namespace base_n
       return os;
     };
 
-    vector_t< T > ads( const vector_t< T > &vector )
-    {
-      vector_t< T > absVector( vector );
-
-      for( size_t i = 0; i < vector.size(); ++i )
-      {
-        absVector[ i ] = std::abs( absVector[ i ] );
-      }
-
-      return absVector;
-
-    };
 
   };
 
+  template< typename T >
+  vector_t< T > abs( const vector_t< T > &vector )
+  {
+    vector_t< T > absVector( vector );
+
+    for( size_t i = 0; i < vector.size(); ++i )
+    {
+       absVector[ i ] = std::abs( absVector[ i ] );
+    }
+
+    return absVector;
+  };
 
 }
 

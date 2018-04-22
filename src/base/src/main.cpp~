@@ -1,7 +1,0 @@
-#include "vector_wrapper.h"
-
-int main()
-{
-  base_n::vector_t( int, 10 );
-  return 0;
-}

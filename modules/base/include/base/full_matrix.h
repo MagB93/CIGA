@@ -1,16 +1,22 @@
 #ifndef FULL_MATRIX_H
 #define FULL_MATRIX_H
 
-#include "vector_wrapper.h"
+#include "base/vector_wrapper.h"
+#include "base/matrix.h"
 
 namespace base_n
 {
   template< typename T >
-  struct fullMatrix_t
+  struct matrix_t
   {
     size_t _dim;
     size_t _size;
     vector_t< T > _data;
+  }
+
+  template< typename T >
+  struct fullMatrix_t : matrix_t< T >
+  {
 
     inline const size_t index( const size_t i, const size_t j ) const
     {

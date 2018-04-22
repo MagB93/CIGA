@@ -1,7 +1,17 @@
 cmake_minimum_required(VERSION 3.2)
 project(test_runner)
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+add_subdirectory( base )
 
+set( test_sources
+  base/vector_wrapper_tests.cpp
+  main.cpp)
+
+add_executable( tests ${test_sources} )
+
+target_link_libraries( tests
+  base
+  gtest_main )
+
+add_test( NAME test COMMAND tests)
 
