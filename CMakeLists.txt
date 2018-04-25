@@ -30,7 +30,7 @@ ENDIF("${CMAKE_BUILD_TYPE}" STREQUAL "")
 IF( ${CMAKE_BUILD_TYPE} MATCHES "DEBUG" )
   IF( ${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" )
     set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -Wall -pendatic \ 
--Wextra -Wold-style-definition -Werror")
+-Wextra -dgdb -Wold-style-definition -Werror")
   ELSE()
     message( WARNING "Unable to determine Compiler ID: ${CMAKE_CXX_COMPILER_ID} ")
   ENDIF( ${CMAKE_CXX_COMPILER_ID} MATCHES "GNU" )
@@ -48,6 +48,7 @@ IF( ${CMAKE_BUILD_TYPE} MATCHES "RELEASE" )
   message( STATUS "Release flags for ${CMAKE_CXX_COMPILER_ID}: ${CMAKE_CXX_FLAGS} ")
 ENDIF( ${CMAKE_BUILD_TYPE} MATCHES "RELEASE" )
 
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # The main sources for the different libraries
 add_subdirectory( modules )

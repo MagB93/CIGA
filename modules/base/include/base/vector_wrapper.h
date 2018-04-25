@@ -57,6 +57,73 @@ namespace base_n
       return os;
     };
 
+   /*!
+     \brief Elementwise substraction of two vectors
+    */
+   vector_t< T > const operator-( vector_t< T > const & a ) const
+   {
+     if ( this->size() != a.size() )
+     {
+       throw std::invalid_argument( "Both vectors must have the same dimension." );
+     }
+     vector_t< T > returnVec( this->size() );
+
+     for( size_t i = 0; i < this->size(); ++i )
+     {
+       returnVec[ i ] = this[ i ] - a[ i ];
+     }
+
+     return returnVec;
+   };
+
+   T const operator*( vector_t< T > const & a ) const
+   {
+     if ( this->size() != a.size() )
+     {
+       throw std::invalid_argument( "Both vectors must have the same dimension." );
+     }
+     vector_t< T > returnVec( this->size() );
+
+     for( size_t i = 0; i < this->size(); ++i )
+     {
+       returnVec[ i ] = this[ i ] * a[ i ];
+     }
+
+     return returnVec;
+   };
+
+   /*!
+     \brief Elementwise multiplication of a vector with a scalar
+    */
+   vector_t< T > const operator*( T const& scal) const
+   {
+     vector_t< T > returnVec( this->size() );
+
+     for( size_t i = 0; i < this->size(); ++i )
+       returnVec[ i ] = this->operator[]( i ) * scal;
+
+     return returnVec;
+
+   };
+
+   /*!
+     \brief Elementwise additon of two vectors
+    */
+   vector_t< T > const operator+( vector_t< T > const & a )
+   {
+     if ( this->size() != a.size() )
+     {
+       throw std::invalid_argument( "Both vectors must have the same dimension." );
+     }
+     vector_t< T > returnVec( this->size() );
+
+     for( size_t i = 0; i < this->size(); ++i )
+     {
+       returnVec[ i ] = this[ i ] + a[ i ];
+     }
+
+     return returnVec;
+   };
 
   };
 

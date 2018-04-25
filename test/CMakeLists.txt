@@ -5,6 +5,8 @@ add_subdirectory( base )
 
 set( test_sources
   base/vector_wrapper_tests.cpp
+  base/full_matrix_test.cpp
+  base/arithmetics_test.cpp
   main.cpp)
 
 add_executable( tests ${test_sources} )
