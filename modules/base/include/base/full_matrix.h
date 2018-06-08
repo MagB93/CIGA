@@ -3,6 +3,7 @@
 #define FULL_MATRIX_H
 
 #include "base/vector_wrapper.h"
+#include <armadillo>
 
 namespace base_n
 {

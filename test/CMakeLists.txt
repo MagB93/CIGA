@@ -13,7 +13,7 @@ add_executable( tests ${test_sources} )
 
 target_link_libraries( tests
   base
+  armadillo
   gtest_main )
 
 add_test( NAME test COMMAND tests)
-
